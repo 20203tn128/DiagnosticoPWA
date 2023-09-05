@@ -5,12 +5,18 @@ const tb = document.getElementById("tb");
 const modalRegister = new bootstrap.Modal('#modalRegister')
 
 const modalUpdate = new bootstrap.Modal('#modalUpdate')
+const modalSeeUser = new bootstrap.Modal('#modalSeeUser')
 
 const inputName = document.getElementById("inputName")
 const inputJob  = document.getElementById("inputJob") 
 
 const updateJob = document.getElementById("updateJob")
 const updateName = document.getElementById("updateName")
+
+const seeAvatar = document.getElementById("seeAvatar")
+const seeName = document.getElementById("seeName")
+const seeLastName = document.getElementById("seeLastName")
+const seeEmail = document.getElementById("seeEmail");
 
 async function logUsers() {
   const response = await fetch("https://reqres.in/api/users");
@@ -25,6 +31,7 @@ async function logUsers() {
     <td>${usuario.last_name}</td>
     <td> <img src="${usuario.avatar}" alt=""></td>
     <td> 
+    <button class="btn btn-danger" onclick ="showSeeModal(${usuario.id})">Ver</button>
     <button class="btn btn-warning" onclick="showModalUpdate(${usuario.id})">Editar</button>
     <button class="btn btn-danger" onclick ="deletUser(${usuario.id})">Eliminar</button>
   </td>
@@ -158,6 +165,37 @@ async function logUsers() {
 
     })
 
+
+ }
+
+ function showSeeModal (id){
+  seeUser(id)
+  modalSeeUser.show()
+ }
+ 
+ async function seeUser (id){
+  console.log(id)
+  console.log(`https://reqres.in/api/users/${id}`)
+  const response = await fetch(`https://reqres.in/api/users/${id}`);
+  console.log(response)
+  if(response.status === 200){
+    const users = await response.json();
+    usuario = users.data;
+    console.log(usuario);
+    seeAvatar.innerHTML = `<img src="${usuario.avatar}" alt="">`
+    seeName.value = usuario.first_name
+    seeLastName.value = usuario.last_name
+    seeEmail.value = usuario.email    
+  }else{
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: 'No se logro',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+  
 
  }
 

@@ -12,14 +12,15 @@
 
 <body>
 <div class="container">
-    <div class="">
+ 
+    <div class="col-12 mt-3">
       <h3>Examen diagnostico</h3>
     </div>
     <div class="d-md-flex justify-content-md-end">
         <button class="btn btn-success" onclick="showModalRegister()">+</button>
     </div>
     
-<div class="mt-5">
+<div class="mt-3">
     <table class="table">
         <thead>
           <tr>
@@ -99,6 +100,44 @@
   </div>
 </div>
 
+<div class="modal" tabindex="-1" id="modalSeeUser">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Información</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-4" id="seeAvatar">
+              <label for="seeAvatar">Avatar:</label>
+            </div>
+            <div class="col-4">
+              <label for="seeName">Nombre:</label>
+              <input class="form-control"  type="text" id="seeName" desabeld>
+            </div>
+            <div class="col-4">
+              <label for="seeLastName">Apellido:</label>
+              <input class="form-control" type="text" id="seeLastName" desabeld>
+            </div> 
+            <div class="col-4"></div>
+            <div class="col-8">
+              <label for="seeEmail">Correo:</label>
+              <input class="form-control" type="text" id="seeEmail" desabeld>
+            </div>
+            
+          </div>
+          
+        </div>
+            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
