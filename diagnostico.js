@@ -31,7 +31,7 @@ async function logUsers() {
     <td>${usuario.last_name}</td>
     <td> <img src="${usuario.avatar}" alt=""></td>
     <td> 
-    <button class="btn btn-danger" onclick ="showSeeModal(${usuario.id})">Ver</button>
+    <button class="btn btn-primary" onclick ="showSeeModal(${usuario.id})">Ver</button>
     <button class="btn btn-warning" onclick="showModalUpdate(${usuario.id})">Editar</button>
     <button class="btn btn-danger" onclick ="deletUser(${usuario.id})">Eliminar</button>
   </td>
